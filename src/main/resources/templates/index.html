@@ -1,0 +1,40 @@
+<!-- Mostrar la pagina de inicio de la app, en ella se observan
+    todas las peliculas agragadas al aplicativo
+    Ruta: http://localhost:8080/-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{master.html}">
+
+<head>
+    <meta charset="utf-8">
+    <title>Inicio</title>
+</head>
+
+<body>
+    <div layout:fragment="content">
+        <div class="bg-light p-5 rounded">
+            <h1 class="display-1 text-success">Bienvenido a CinemaTrailer</h1>
+            <h2>Disfruta los trailers de tus películas favoritas</h2>
+        </div>
+
+        <h4 class="text-danger mt-5" style="margin-bottom: 2rem;">Últimas películas agregadas</h4>
+
+        <div class="row">
+            <div th:each="pelicula : ${peliculas}" class="col-md-6">
+                <img th:src="@{'/assets/' + ${pelicula.rutaPortada}}" th:alt="${pelicula.titulo}"
+                    class="card-img-top pelicula-img">
+                <div class="card-body">
+                    <h2 class="card-title fs-6" th:text="${pelicula.titulo}"></h2>
+                    <p th:text="${#temporals.format(pelicula.fechaEstreno, 'yyyy')}" class="text-muted small"></p>
+                </div>
+            </div>
+        </div>
+
+            <!-- incluir la paginación 
+            <div th:replace="paginacion :: pagination"></div>
+            -->
+    </div>
+</body>
+
+</html>

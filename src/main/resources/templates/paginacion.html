@@ -1,0 +1,15 @@
+<!-- paginacion.html -->
+
+<div class="pagination-container">
+    <ul class="pagination">
+        <li th:class="${currentPage == 1 ? 'page-item disabled' : 'page-item'}">
+            <a class="page-link" th:href="@{/}?page=${currentPage - 1}">Anterior</a>
+        </li>
+        <li th:each="pageNumber : ${pages}" th:class="${pageNumber == currentPage ? 'page-item active' : 'page-item'}">
+            <a class="page-link" th:href="@{/}?page=${pageNumber}" th:text="${pageNumber}"></a>
+        </li>
+        <li th:class="${currentPage == totalPages ? 'page-item disabled' : 'page-item'}">
+            <a class="page-link" th:href="@{/}?page=${currentPage + 1}">Siguiente</a>
+        </li>
+    </ul>
+</div>
