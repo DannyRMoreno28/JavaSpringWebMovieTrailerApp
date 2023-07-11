@@ -25,7 +25,7 @@ A continuación se describe la estructura de carpetas y los archivos principales
 
 * .mvn: Directorio que contiene archivos relacionados con Maven.
   
-* .vscode: Directorio que contiene archivos de configuración específicos de Visual Studio Code.
+* .vscode: Directorio que contiene archivos de configuración específicos de IDE Visual Studio Code.
   
 * assets: Directorio que contiene las portadas de cada película en formato .jpg.
   
